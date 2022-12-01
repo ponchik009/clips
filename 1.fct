@@ -1,12 +1,6 @@
 ([doesNotWorking] of DoesNotWork
    (Value yes))
 
-([doesNotHeatUp] of DoesNotHeatUp
-   (Value no))
-
-([hasNoise] of HasNoise
-   (Value no))
-
 ([gen1] of ConnectPower
    (Done no))
 

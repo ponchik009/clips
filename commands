@@ -1,4 +1,4 @@
-(load server.clp)
+(load server2.clp)
 (reset)
 (run)
 (exit)

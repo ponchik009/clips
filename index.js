@@ -1,31 +1,46 @@
-const { spawnSync } = require("child_process");
+const express = require("express");
 const fs = require("fs");
+const https = require("https");
 
-const ls = spawnSync("CLIPSDOS.exe", ["-f", "commands"]);
+const { resolve } = require("./solution.js");
 
-// console.log(ls);
+const app = express();
+const port = 3443;
 
-const data = fs.readFileSync("./1.fct", { encoding: "utf8", flag: "r" });
+const privateKey = fs.readFileSync("../SSL/certs/private.key");
+const certificate = fs.readFileSync("../SSL/certs/certificate.crt");
 
-const works = [
-  "ConnectPower",
-  "ReplaceFuse",
-  "FixSocket",
-  "CleanPollution",
-  "CloseDoor",
-  "ReplaceDoorLatches",
-];
+app.use(express.json());
 
-const formattedArray = data.split("\r\n").filter((str) => str.length > 0);
-
-const res = {};
-
-for (let i = 0; i < formattedArray.length; i += 2) {
-  for (let work of works) {
-    if (formattedArray[i].includes(work)) {
-      res[work] = true;
-    }
-  }
+function makeResponse(text) {
+  return {
+    fulfillmentMessages: [{ text: { text: [text] } }],
+  };
 }
 
-console.log(res);
+function bodyToEntries(body) {
+  const entries = {};
+
+  for (let entry in body.queryResult.parameters) {
+    entries[entry] = true;
+  }
+
+  return entries;
+}
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.post("/", (req, res) => {
+  const entries = bodyToEntries(req.body);
+  const textResponse = resolve(entries);
+  const answer = makeResponse(textResponse);
+  res.send(answer);
+});
+
+https
+  .createServer({ key: privateKey, cert: certificate }, app)
+  .listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+  });
