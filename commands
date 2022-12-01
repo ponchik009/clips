@@ -1,0 +1,4 @@
+(load server.clp)
+(reset)
+(run)
+(exit)
