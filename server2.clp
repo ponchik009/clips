@@ -85,7 +85,8 @@
 ;;; Начальные состояния - их мы будем задавать программно (из js или php)
 
 (definstances Malifunctions
-undefined)
+
+(hasNoise of HasNoise (Value yes)))
 
 ;;; Правила
 
@@ -103,12 +104,12 @@ undefined)
 =>
 	(make-instance (gensym) of CloseDoor (Done no))
 	(make-instance (gensym) of ReplaceDoorLatches (Done no))
-	;(save-instances "1.fct")
+	(save-instances "1.fct")
 )
 
 (defrule has-noise-solution
   (object (is-a HasNoise) (Value yes))
 =>
 	(make-instance (gensym) of CleanPollution (Done no))
-	;(save-instances "1.fct")
+	(save-instances "1.fct")
 )
