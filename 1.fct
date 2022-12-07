@@ -1,12 +1,9 @@
-([doesNotWorking] of DoesNotWork
+([doesNotHeatUp] of DoesNotHeatUp
    (Value yes))
 
-([gen1] of ConnectPower
+([gen1] of CloseDoor
    (Done no))
 
-([gen2] of ReplaceFuse
-   (Done no))
-
-([gen3] of FixSocket
+([gen2] of ReplaceDoorLatches
    (Done no))
 

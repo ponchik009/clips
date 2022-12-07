@@ -19,10 +19,14 @@ function makeResponse(text) {
 }
 
 function bodyToEntries(body) {
-  const entries = {};
+  let malfunctions = body.queryResult.parameters.Malfunction;
 
-  for (let entry in body.queryResult.parameters) {
-    entries[entry] = true;
+  if (Array.isArray(malfunctions)) {
+    for (let malfunction of malfunctions) {
+      entries[malfunction] = true;
+    }
+  } else {
+    entries[malfunctions] = true;
   }
 
   return entries;

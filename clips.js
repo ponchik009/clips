@@ -13,9 +13,9 @@ const works = [
 ];
 
 const entriesToInstances = {
-  "Не работает": "(doesNotWorking of DoesNotWork (Value yes))",
-  "Не нагревает": "(doesNotHeatUp of DoesNotHeatUp (Value yes))",
-  Шумит: "(hasNoise of HasNoise (Value yes))",
+  DoesNotWork: "(doesNotWorking of DoesNotWork (Value yes))",
+  DoesNotHeatUp: "(doesNotHeatUp of DoesNotHeatUp (Value yes))",
+  HasNoise: "(hasNoise of HasNoise (Value yes))",
 };
 
 module.exports = {
