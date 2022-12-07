@@ -21,6 +21,8 @@ function makeResponse(text) {
 function bodyToEntries(body) {
   let malfunctions = body.queryResult.parameters.Malfunction;
 
+  let entries = {};
+
   if (Array.isArray(malfunctions)) {
     for (let malfunction of malfunctions) {
       entries[malfunction] = true;
