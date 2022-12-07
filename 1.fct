@@ -1,9 +1,0 @@
-([doesNotHeatUp] of DoesNotHeatUp
-   (Value yes))
-
-([gen1] of CloseDoor
-   (Done no))
-
-([gen2] of ReplaceDoorLatches
-   (Done no))
-

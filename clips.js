@@ -29,7 +29,7 @@ module.exports = {
     }
 
     const allClpCode = partBefore + clpCode + partAfter;
-
+    console.log(clpCode);
     fs.writeFileSync("server2.clp", allClpCode);
   },
 

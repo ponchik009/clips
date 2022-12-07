@@ -7,8 +7,8 @@ const { resolve } = require("./solution.js");
 const app = express();
 const port = 3443;
 
-const privateKey = fs.readFileSync("../SSL/certs/private.key");
-const certificate = fs.readFileSync("../SSL/certs/certificate.crt");
+const privateKey = fs.readFileSync("../../SSL/certs/private.key");
+const certificate = fs.readFileSync("../../SSL/certs/certificate.crt");
 
 app.use(express.json());
 
@@ -28,7 +28,7 @@ function bodyToEntries(body) {
   } else {
     entries[malfunctions] = true;
   }
-
+  console.log(entries);
   return entries;
 }
 

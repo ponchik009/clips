@@ -88,6 +88,7 @@
 
 )
 
+
 ;;; Правила
 
 (defrule does-not-work-solution
