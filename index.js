@@ -14,12 +14,12 @@ app.use(express.json());
 
 function makeResponse(text) {
   return {
-    fulfillmentMessages: [{ text: { text: [text] } }],
+    //fulfillmentMessages: [{ text: { text: [text] } }],
     followupEventInput: {
-      name: "still-problem",
-      languageCode: "ru",
+      name: "make-work",
+      languageCode: "ru-RU",
       parameters: {
-        work: "work",
+        Work: text.split("\n"),
       },
     },
   };
