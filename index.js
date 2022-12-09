@@ -15,6 +15,13 @@ app.use(express.json());
 function makeResponse(text) {
   return {
     fulfillmentMessages: [{ text: { text: [text] } }],
+    followupEventInput: {
+      name: "still-problem",
+      languageCode: "ru",
+      parameters: {
+        work: "work",
+      },
+    },
   };
 }
 
